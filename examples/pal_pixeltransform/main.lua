@@ -1,4 +1,4 @@
--- Example: Palette Pixel Transform
+-- Example: Palette Pixel Transform 
 local Shader;
 local sceneCanvas;
 local graphicCanvas;
