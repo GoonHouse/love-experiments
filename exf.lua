@@ -147,8 +147,8 @@ function exf:start(item, file)
 			if is_file then
 				love.filesystem.load(self.exdir .. "/" .. file)()
 			elseif is_folder then
-				mountme:wrap()
 				mountme:setBase(self.exdir .. "/" .. file)
+				mountme:wrap()
 				self.current = self.exdir .. "/" .. file
 				love.filesystem.load(self.exdir .. "/" .. file .. "/main.lua")()
 			end
@@ -184,6 +184,8 @@ end
 function exf:resume()
 	ProFi:stop()
 	ProFi:writeReport( 'light_world_profiling_report.txt' )
+
+	love.audio.stop()
 
 	if self.current ~= nil then
 		mountme:unwrap()
